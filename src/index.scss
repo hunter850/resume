@@ -1,0 +1,98 @@
+:root {
+    --main: #be791e;
+    --bg-main: #f8e9bc;
+    --bg-main-40: #f8e9bc66;
+    --bg-main-60: #f8e9bc99;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    overflow-y: scroll;
+}
+
+#root {
+    min-height: 110vh;
+    background-image: url("./images/bg_papper.jpg");
+    background-repeat: repeat;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+button:focus {
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+input,
+textarea,
+button,
+select,
+a {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body.hide_scrollbar {
+    overflow-y: scroll;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+}
+
+::-webkit-scrollbar {
+    width: 17px;
+    height: 17px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--bg-main-40);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 17px;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: #fff0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+pre,
+div,
+ul,
+li {
+    color: #333;
+}

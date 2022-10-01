@@ -1,0 +1,161 @@
+.nav__wrap-blur {
+    backdrop-filter: blur(4px);
+}
+
+.nav__wrap {
+    width: 100%;
+    height: 60px;
+    background-color: #fff9;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+}
+
+.nav__container {
+    height: 100%;
+}
+
+.nav__button {
+    width: 60px;
+    height: 60px;
+    color: #333;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    @media (min-width: 576px) {
+        display: none;
+    }
+}
+
+.nav__hamburger {
+    font-size: 20px;
+    fill: currentColor;
+}
+
+.nav__cover--active {
+    display: block;
+    backdrop-filter: blur(4px);
+    animation: cover-fade-in 300ms ease;
+}
+
+.nav__cover--inactive {
+    display: none;
+}
+
+.nav__cover {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    @media (min-width: 576px) {
+        position: static;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        width: auto;
+        height: 100%;
+    }
+}
+
+@keyframes cover-fade-in {
+    0% {
+        background-color: #0000;
+    }
+    100% {
+        background-color: rgb(0 0 0 / 0.4);
+    }
+}
+
+.nab__bord--active {
+    animation: slide-left 300ms ease;
+}
+
+.nav__bord {
+    width: 240px;
+    max-width: 100%;
+    height: 100%;
+    padding: 36px 0px;
+    background: url("../../../images/bg_papper.jpg") repeat;
+    position: relative;
+    > .nav__heading {
+        width: 100%;
+        margin-top: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0px;
+        left: -16px;
+        cursor: pointer;
+    }
+    @media (min-width: 576px) {
+        width: 100%;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        background: transparent;
+        padding: 0px;
+        transform: translateX(0px);
+        > .nav__heading {
+            width: auto;
+            margin-top: 0px;
+            position: static;
+        }
+    }
+}
+
+@keyframes slide-left {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+.nav__close {
+    width: 36px;
+    height: 36px;
+    color: #333;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    @media (min-width: 576px) {
+        display: none;
+    }
+}
+
+.nav__links {
+    margin-top: 12px;
+    @media (min-width: 576px) {
+        height: 100%;
+        margin-top: 0px;
+        display: flex;
+    }
+}
+
+.nav__link {
+    width: 100%;
+    height: 100%;
+    > a {
+        width: 100%;
+        height: 100%;
+        padding: 8px 16px;
+        display: inline-flex;
+        align-items: center;
+        white-space: nowrap;
+        @media (min-width: 576px) {
+            padding: 0px 16px;
+        }
+    }
+}
