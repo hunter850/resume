@@ -1,0 +1,40 @@
+.cover__bg {
+    width: 100vw;
+    height: 100vh;
+    background: url("../../../../../images/bg_papper.jpg") repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+.cover__texts {
+    transform-origin: -1px top 0px;
+    animation: flip-cover 2s ease;
+    width: 60%;
+    > li {
+        padding: 0px 60px;
+        text-align: center;
+        line-height: 36px;
+        border-bottom: 1px solid #999;
+    }
+    > li:last-child {
+        text-align: right;
+    }
+}
+
+.cover__bg--off {
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+.cover__enter-button {
+    background-color: transparent;
+
+}

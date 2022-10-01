@@ -5,7 +5,11 @@ import { FaBars } from "react-icons/fa";
 import CloseIcon from "./components/CloseIcon";
 import { useScrollbar } from "@/contexts/ScrollbarProvider";
 import useClass from "@/hooks/useClass";
+import useTimeout from "@/hooks/useTimeout";
+import { useMoveToSection } from "@/contexts/MoveToSectionProvider";
 import { throttle } from "lodash";
+
+import { links } from "./data/links";
 
 function Navbar() {
     const {
@@ -27,6 +31,8 @@ function Navbar() {
     const bodyRef = useRef(document.body);
     const c = useClass();
     const { hideScrollbar, showScrollbar } = useScrollbar();
+    const [timer, stopTimer] = useTimeout();
+    const { anchors } = useMoveToSection();
     const [showSideNav, setShowSideNav] = useState(false);
     function openHandler(event) {
         event.stopPropagation();
@@ -37,6 +43,17 @@ function Navbar() {
         event.stopPropagation();
         showScrollbar();
         setShowSideNav(false);
+    }
+    function moveHandler(name) {
+        if (window.innerWidth < 576) {
+            showScrollbar();
+        }
+        setShowSideNav(false);
+        timer(() => {
+            if (anchors[name] !== undefined) {
+                window.scrollTo({ top: anchors[name] - 60, behavior: "smooth" });
+            }
+        }, 1);
     }
     useEffect(() => {
         function resizeHandler() {
@@ -71,15 +88,11 @@ function Navbar() {
                             <CloseIcon />
                         </button>
                         <ul className={nav__links}>
-                            <li className={nav__link}>
-                                <a href="#/">首頁</a>
-                            </li>
-                            <li className={nav__link}>
-                                <a href="#/">簡歷</a>
-                            </li>
-                            <li className={nav__link}>
-                                <a href="#/">作品集</a>
-                            </li>
+                            {links.map((link) => (
+                                <li className={nav__link} key={link.name}>
+                                    <button onClick={() => moveHandler(link.name)}>{link.content}</button>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>
