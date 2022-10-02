@@ -5,7 +5,7 @@ import { FaBars } from "react-icons/fa";
 import CloseIcon from "./components/CloseIcon";
 import { useScrollbar } from "@/contexts/ScrollbarProvider";
 import useClass from "@/hooks/useClass";
-import useTimeout from "@/hooks/useTimeout";
+import useScrollTo from "@/hooks/useScrollTo";
 import { useMoveToSection } from "@/contexts/MoveToSectionProvider";
 import { throttle } from "lodash";
 
@@ -16,6 +16,7 @@ function Navbar() {
         nav__heading,
         nav__wrap,
         "nav__wrap-blur": nav__wrap_blur,
+        nav__placeholder,
         nav__container,
         nav__button,
         nav__hamburger,
@@ -31,7 +32,7 @@ function Navbar() {
     const bodyRef = useRef(document.body);
     const c = useClass();
     const { hideScrollbar, showScrollbar } = useScrollbar();
-    const [timer, stopTimer] = useTimeout();
+    const gsapScrollTo = useScrollTo();
     const { anchors } = useMoveToSection();
     const [showSideNav, setShowSideNav] = useState(false);
     function openHandler(event) {
@@ -49,11 +50,9 @@ function Navbar() {
             showScrollbar();
         }
         setShowSideNav(false);
-        timer(() => {
-            if (anchors[name] !== undefined) {
-                window.scrollTo({ top: anchors[name] - 60, behavior: "smooth" });
-            }
-        }, 1);
+        if (anchors[name] !== undefined) {
+            gsapScrollTo(anchors[name] - 84, 0.7);
+        }
     }
     useEffect(() => {
         function resizeHandler() {
@@ -70,34 +69,40 @@ function Navbar() {
         };
     }, []);
     return (
-        <nav className={c(nav__wrap, { [nav__wrap_blur]: !showSideNav })}>
-            <Container className={nav__container}>
-                <button className={nav__button} onClick={openHandler}>
-                    <FaBars className={nav__hamburger} />
-                </button>
-                <div
-                    className={c(nav__cover, { [nav__cover_active]: showSideNav, [nav__cover_inactive]: !showSideNav })}
-                    onClick={closeHandler}
-                >
+        <>
+            <nav className={c(nav__wrap, { [nav__wrap_blur]: !showSideNav })}>
+                <Container className={nav__container}>
+                    <button className={nav__button} onClick={openHandler}>
+                        <FaBars className={nav__hamburger} />
+                    </button>
                     <div
-                        className={c(nav__bord, { [nav__bord_active]: showSideNav })}
-                        onClick={(e) => e.stopPropagation()}
+                        className={c(nav__cover, {
+                            [nav__cover_active]: showSideNav,
+                            [nav__cover_inactive]: !showSideNav,
+                        })}
+                        onClick={closeHandler}
                     >
-                        <h1 className={nav__heading}>Kevin's Resume</h1>
-                        <button className={nav__close} onClick={closeHandler}>
-                            <CloseIcon />
-                        </button>
-                        <ul className={nav__links}>
-                            {links.map((link) => (
-                                <li className={nav__link} key={link.name}>
-                                    <button onClick={() => moveHandler(link.name)}>{link.content}</button>
-                                </li>
-                            ))}
-                        </ul>
+                        <div
+                            className={c(nav__bord, { [nav__bord_active]: showSideNav })}
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <h1 className={nav__heading}>Kevin's Profile</h1>
+                            <button className={nav__close} onClick={closeHandler}>
+                                <CloseIcon />
+                            </button>
+                            <ul className={nav__links}>
+                                {links.map((link) => (
+                                    <li className={nav__link} key={link.name}>
+                                        <button onClick={() => moveHandler(link.name)}>{link.content}</button>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            </Container>
-        </nav>
+                </Container>
+            </nav>
+            <div className={nav__placeholder}></div>
+        </>
     );
 }
 
