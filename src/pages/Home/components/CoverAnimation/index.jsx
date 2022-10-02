@@ -49,7 +49,7 @@ function CoverAnimation() {
                     <div className={cover}></div>
                     <div className={page}>
                         <ul>
-                            <li>不管你從哪裡獲得本書</li>
+                            <li>不管您從哪裡獲得本書</li>
                             <li>這裡記錄了 Kevin 的經歷</li>
                             <li>在此請讓我向您介紹</li>
                             <li>一位優質的前端工程師</li>
