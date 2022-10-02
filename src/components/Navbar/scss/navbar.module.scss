@@ -1,5 +1,6 @@
 .nav__wrap-blur {
     backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 
 .nav__wrap {
@@ -7,10 +8,16 @@
     height: 60px;
     background-color: #fff9;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-    position: sticky;
+    position: fixed;
     top: 0px;
     left: 0px;
     overflow: hidden;
+    z-index: 2;
+}
+
+.nav__placeholder {
+    width: 100%;
+    height: 60px;
 }
 
 .nav__container {
@@ -37,6 +44,7 @@
 .nav__cover--active {
     display: block;
     backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     animation: cover-fade-in 300ms ease;
 }
 
@@ -90,7 +98,7 @@
         position: absolute;
         top: 0px;
         left: -16px;
-        cursor: pointer;
+        cursor: default;
         white-space: nowrap;
     }
     @media (min-width: 576px) {
