@@ -1,8 +1,12 @@
 :root {
     --main: #be791e;
+    --main-20: #be791e33;
+    --main-40: #be791e66;
+    --main-60: #be791e99;
     --bg-main: #f8e9bc;
     --bg-main-40: #f8e9bc66;
     --bg-main-60: #f8e9bc99;
+    --text-black: #333;
 }
 
 * {
@@ -13,13 +17,17 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+html,
 body {
-    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+body {
+    background-image: url("./images/bg_papper.jpg");
 }
 
 #root {
     min-height: 110vh;
-    background-image: url("./images/bg_papper.jpg");
     background-repeat: repeat;
 }
 
@@ -86,6 +94,15 @@ h2,
 h3,
 h4,
 h5,
+h6 {
+    text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
 h6,
 p,
 span,
@@ -94,5 +111,5 @@ pre,
 div,
 ul,
 li {
-    color: #333;
+    color: var(--text-black);
 }
