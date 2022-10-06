@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import styles from "./scss/coverAnimation.module.scss";
 import useClass from "@/hooks/useClass";
 import useTimeout from "@/hooks/useTimeout";
-import coffeTeamates from "@/images/ispan_coffee_team2.jpg";
 
 function CoverAnimation(props) {
     const { setShowProfile } = props;
