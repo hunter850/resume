@@ -1,4 +1,128 @@
 .about__wrapper {
     width: 100%;
-    min-height: 100vh;
+    // min-height: 75vh;
+    margin-top: 24px;
+    margin-bottom: 72px;
+    position: relative;
+}
+
+.about__content {
+    width: 100%;
+    padding-top: 80px;
+    position: relative;
+    @media (min-width: 768px) {
+        padding-top: 120px;
+    }
+}
+
+.about__constrain {
+    margin: auto;
+    @media (min-width: 768px) {
+        max-width: 720px;
+        display: flex;
+    }
+}
+
+.about__info {
+    margin-bottom: 24px;
+    padding: 0px 24px;
+    @media (min-width: 768px) {
+        margin-bottom: 0px;
+    }
+}
+
+.about__avatar-wrap {
+    width: 180px;
+    height: 180px;
+    margin: 0px auto 12px;
+    border-radius: 50%;
+    overflow: hidden;
+    > img {
+        width: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+}
+
+.about__name {
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+
+.about__github-link {
+    text-align: center;
+    margin-bottom: 6px;
+    > a {
+        display: inline-flex;
+        align-items: center;
+    }
+}
+
+.about__email {
+    text-align: center;
+}
+
+.about__github-cat {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 6px;
+    border-radius: 50%;
+    overflow: hidden;
+    > img {
+        width: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+}
+
+.about__text-wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    > h3 {
+        font-size: 24px;
+    }
+    > h3:nth-last-of-type(1) {
+        margin-bottom: 12px;
+    }
+    svg {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        vertical-align: middle;
+        margin-right: 6px;
+        
+    }
+    .about__paragraphs {
+        width: fit-content;
+        margin: 0px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    li {
+        font-size: 18px;
+        display: flex;
+        line-height: 2;
+        padding: 0px 24px;
+        @media (min-width: 992px) {
+            white-space: nowrap;
+        }
+        &::before {
+            content: url("../../../../../images/pen.svg");
+            display: inline-block;
+            margin-right: 6px;
+        }
+        &:nth-last-of-type(2)::before {
+            content: url("../../../../../images/mail.svg");
+        }
+        &:nth-last-of-type(1)::before {
+            content: url("../../../../../images/github.svg");
+        }
+    }
+    span {
+        line-height: 2;
+    }
 }

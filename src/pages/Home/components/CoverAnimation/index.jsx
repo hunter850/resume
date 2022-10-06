@@ -1,66 +1,72 @@
 import { useState, useEffect } from "react";
 import styles from "./scss/coverAnimation.module.scss";
 import useClass from "@/hooks/useClass";
-import { useScrollbar } from "@/contexts/ScrollbarProvider";
 import useTimeout from "@/hooks/useTimeout";
+import coffeTeamates from "@/images/ispan_coffee_team2.jpg";
 
-function CoverAnimation() {
+function CoverAnimation(props) {
+    const { setShowProfile } = props;
     const {
         desk,
+        "desk--clickthrough": desk_clickthrough,
         book,
-        page,
-        flip,
-        cover,
-        "desk--disapear": desk_disapear,
-        "scale-animation": scale_animation,
-        "book__enter-button": book__enterButton,
+        "book--big": book_big,
+        page__left,
+        page__right,
+        "page__right--open": page__right_open,
+        cover__left,
+        cover__right,
+        content__left,
+        content__right,
+        paper__left,
+        paper__right,
+        lines,
     } = styles;
     const c = useClass();
-    const [enterAnimation, setEnterAnimation] = useState(false);
-    const [canClickThrough, setCanClickThrough] = useState(false);
-    const { showScrollbar, hideScrollbar } = useScrollbar();
+    const [isOpen, setIsOpen] = useState(false);
+    const [clickThrough, setClickThrough] = useState(false);
+    const [showAnimation, setShowAnimation] = useState(false);
     const [timer] = useTimeout();
-
-    function scaleHandler() {
-        setEnterAnimation(true);
+    useEffect(() => {
+        setIsOpen(true);
+    }, []);
+    function closeAnimation() {
+        setShowAnimation(true);
         timer(() => {
-            setCanClickThrough(true);
+            setClickThrough(true);
+            setShowProfile(true);
         }, 1000);
     }
-
-    useEffect(() => {
-        if (canClickThrough) {
-            showScrollbar();
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [canClickThrough]);
-    useEffect(() => {
-        window.scrollTo(0, 0);
-        timer(() => {
-            hideScrollbar();
-        });
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
     return (
         <>
-            <div className={c(desk, { [desk_disapear]: canClickThrough })}>
-                <div className={c(book, { [scale_animation]: enterAnimation })}>
-                    <div className={c(page, flip)}></div>
-                    <div className={cover}></div>
-                    <div className={page}>
-                        <ul>
-                            <li>不管您從哪裡獲得本書</li>
-                            <li>這裡記錄了 Kevin 的經歷</li>
-                            <li>在此請讓我向您介紹</li>
-                            <li>一位優質的前端工程師</li>
-                            <li>
-                                <button className={book__enterButton} onClick={scaleHandler}>
-                                    Enter
-                                </button>
-                            </li>
-                        </ul>
+            <div className={c(desk, { [book_big]: showAnimation, [desk_clickthrough]: clickThrough })}>
+                <div className={book}>
+                    <div className={page__left}>
+                        <div className={content__left}>
+                            <div className={paper__left}>
+                                <ul className={lines}>
+                                    <li>不管您從哪裡獲得這本書</li>
+                                    <li> </li>
+                                    <li>這裡記錄了 Kevin 的經歷</li>
+                                    <li> </li>
+                                    <li>在此請讓我向您介紹</li>
+                                    <li> </li>
+                                    <li>一位充滿熱忱的前端工程師</li>
+                                    <li> </li>
+                                    <li>
+                                        <button onClick={closeAnimation}>Let's Go !</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div className={cover__left}></div>
                     </div>
-                    <div className={c(cover, flip)}></div>
+                    <div className={c(page__right, { [page__right_open]: isOpen })}>
+                        <div className={content__right}>
+                            <div className={paper__right}></div>
+                        </div>
+                        <div className={cover__right}></div>
+                    </div>
                 </div>
             </div>
         </>

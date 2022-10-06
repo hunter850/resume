@@ -1,4 +1,78 @@
 .skill__wrapper {
     width: 100%;
-    min-height: 100vh;
+    margin: 24px auto 72px;
+    padding-top: 104px;
+    position: relative;
+    @media (min-width: 768px) {
+        width: 75%;
+        padding-top: 144px;
+    }
+}
+
+.slider {
+    width: 100%;
+    margin: 0px auto;
+    padding: 12px 0px !important;
+}
+
+.slider__card {
+    padding: 36px 24px;
+    background-color: var(--light-yellow);
+    border-radius: 10px;
+    border: 1px solid var(--main);
+    display: flex;
+    flex-direction: column;
+    aspect-ratio: 1 / 1;
+}
+
+.slider__image-wrap {
+    width: 100%;
+    margin-bottom: 12px;
+    aspect-ratio: 16 / 9;
+    > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.slider__text-wrap {
+    flex: 1 0 auto;
+    padding-top: 24px;
+    @media (min-width: 576px) {
+        padding-top: 0px;
+    }
+    > li {
+        font-size: 20px;
+        line-height: 2;
+        display: flex;
+        &::before {
+            content: url("../../../../../images/code.svg");
+            display: inline-block;
+            margin-right: 6px;
+        }
+    }
+}
+
+:root {
+    --swiper-theme-color: var(--main) !important;
+    --swiper-navigation-size: 60px !important;
+}
+
+:global(.swiper-button-prev) {
+    &::after {
+        content: "" !important;
+        width: 100%;
+        height: 100%;
+        background: url("../../../../../images/arrow_left.svg") center center / contain no-repeat;
+    }
+}
+
+:global(.swiper-button-next) {
+    &::after {
+        content: "" !important;
+        width: 100%;
+        height: 100%;
+        background: url("../../../../../images/arrow_right.svg") center center / contain no-repeat;
+    }
 }

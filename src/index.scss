@@ -1,12 +1,29 @@
 :root {
     --main: #be791e;
+    --main-10: #be791e1a;
     --main-20: #be791e33;
     --main-40: #be791e66;
     --main-60: #be791e99;
-    --bg-main: #f8e9bc;
-    --bg-main-40: #f8e9bc66;
-    --bg-main-60: #f8e9bc99;
+    --main-dark: #955f18;
+    --bg-main: #fbf2d8;
+    --bg-main-40: #fbf2d866;
+    --bg-main-60: #fbf2d899;
+    --milktea: #a98b73;
+    --milktea-light: #c9b49b;
+    --milktea-60: #a98b7399;
+    --dark: #36354e;
+    --white: #fff;
+    --white-10: #ffffff1a;
+    --white-20: #ffffff33;
+    --white-40: #ffffff66;
+    --white-60: #ffffff99;
+    --black: #000;
+    --black-10: #0000001a;
+    --black-20: #00000033;
+    --black-40: #00000066;
+    --light-yellow: #fffaed;
     --text-black: #333;
+    --text-light: #fff;
 }
 
 * {
@@ -23,11 +40,13 @@ body {
 }
 
 body {
-    background-image: url("./images/bg_papper.jpg");
+    // background-image: url("./images/bg_papper.jpg");
+    // background-image: url("./images/bg_papper2.png");
+    background-color: var(--bg-main);
 }
 
 #root {
-    min-height: 110vh;
+    min-height: 100vh;
     background-repeat: repeat;
 }
 
@@ -45,6 +64,7 @@ a {
     text-decoration: none;
 }
 
+div,
 input,
 textarea,
 button,

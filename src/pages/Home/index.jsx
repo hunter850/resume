@@ -6,21 +6,25 @@ import Container from "@/components/Container";
 import CoverAnimation from "./components/CoverAnimation";
 import AboutMe from "./components/AboutMe";
 import Skill from "./components/Skill";
-import Resume from "./components/Resume";
+import Experience from "./components/Experience";
 import Portfolio from "./components/Portfolio";
 
 function Home() {
-    const [showCover, setShowCover] = useState(true);
+    const [showProfile, setShowProfile] = useState(false);
     return (
         <>
-            <CoverAnimation showCover={showCover} setShowCover={setShowCover} />
-            <Navbar />
-            <Container>
-                <AboutMe />
-                <Skill />
-                <Resume />
-                <Portfolio />
-            </Container>
+            <CoverAnimation setShowProfile={setShowProfile} />
+            {showProfile && (
+                <>
+                    <Navbar />
+                    <Container>
+                        <AboutMe />
+                        <Skill />
+                        <Experience />
+                        <Portfolio />
+                    </Container>
+                </>
+            )}
         </>
     );
 }

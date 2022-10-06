@@ -1,0 +1,27 @@
+%heading_basic {
+    font-size: 56px;
+    width: 100%;
+    text-align: center;
+    color: var(--main-10);
+    white-space: nowrap;
+    position: absolute;
+    top: 0px;
+    user-select: none;
+}
+
+.heading--left {
+    @extend %heading_basic;
+    left: 0px;
+    @media (min-width: 768px) {
+        font-size: 100px;
+        text-align: left;
+    }
+}
+.heading--right {
+    @extend %heading_basic;
+    right: 0px;
+    @media (min-width: 768px) {
+        font-size: 100px;
+        text-align: right;
+    }
+}
