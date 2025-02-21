@@ -31,17 +31,6 @@ export const datas = [
     },
     {
         id: 3,
-        image: resume,
-        alt: "Kevin's resume",
-        link: "https://hunter850.github.io/resume/",
-        title: "個人簡歷頁",
-        content: `
-            以 React 搭配 SCSS ，製作個人簡歷網站，
-        `,
-        tags: ["React", "SCSS"],
-    },
-    {
-        id: 4,
         image: asus,
         alt: "ASUS slicing",
         link: "https://hunter850.github.io/slicing_practice/",
@@ -52,18 +41,7 @@ export const datas = [
         tags: ["HTML", "CSS"],
     },
     {
-        id: 5,
-        image: overwatch,
-        alt: "overwatch slicing",
-        link: "https://hunter850.github.io/slicing_practice_RWD/",
-        title: "鬥陣特公官網切版練習",
-        content: `
-            以 HTML、CSS 及 JavaScript，切出具有 RWD 且有互動效果的網頁。
-        `,
-        tags: ["HTML", "CSS", "JavaScript"],
-    },
-    {
-        id: 6,
+        id: 4,
         image: coffee,
         alt: "0+b coffee",
         link: "https://project0plusb.netlify.app/",
@@ -72,6 +50,28 @@ export const datas = [
             8人合作以 React 撰寫電商網站，負責購物車及共用元件的開發，並以 Express 自己開 api 與後端對接。
         `,
         tags: ["React", "Node", "MySQL"],
+    },
+    {
+        id: 5,
+        image: resume,
+        alt: "Kevin's resume",
+        link: "https://hunter850.github.io/resume/",
+        title: "個人簡歷頁",
+        content: `
+            以 React 搭配 SCSS ，製作個人簡歷網站，
+        `,
+        tags: ["React", "SCSS"],
+    },
+    {
+        id: 6,
+        image: overwatch,
+        alt: "overwatch slicing",
+        link: "https://hunter850.github.io/slicing_practice_RWD/",
+        title: "鬥陣特公官網切版練習",
+        content: `
+            以 HTML、CSS 及 JavaScript，切出具有 RWD 且有互動效果的網頁。
+        `,
+        tags: ["HTML", "CSS", "JavaScript"],
     },
     {
         id: 7,
