@@ -37,7 +37,7 @@ function Skill() {
             <HeadingMark position="right">Skills</HeadingMark>
             <Swiper
                 loop={true}
-                slidesPerView={breakPoint > 0 ? 1.5 : 1}
+                slidesPerView={breakPoint > 3 ? 1.5 : 1}
                 grabCursor={true}
                 centeredSlides={true}
                 pagination={{
