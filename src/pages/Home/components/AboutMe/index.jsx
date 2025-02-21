@@ -47,7 +47,7 @@ function AboutMe() {
                         <ul className={about__paragraphs}>
                             <li>進修經歷：資策會前端工程師就業養成班(2022.03~2022.08)</li>
                             <li>專案作品：咖啡電商網站、OverWatch及ASUS官網切版練習</li>
-                            <li>專業技能：React、Vue、RWD、git版控</li>
+                            <li>專業技能：React、RWD、git版控</li>
                             <li>hunter850711@gmail.com</li>
                             <li>
                                 <a href="https://github.com/hunter850" target="_blank" rel="noreferrer">
