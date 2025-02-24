@@ -67,7 +67,7 @@ export const datas = [
         image: overwatch,
         alt: "overwatch slicing",
         link: "https://hunter850.github.io/slicing_practice_RWD/",
-        title: "鬥陣特公官網切版練習",
+        title: "鬥陣特攻官網切版練習",
         content: `
             以 HTML、CSS 及 JavaScript，切出具有 RWD 且有互動效果的網頁。
         `,
