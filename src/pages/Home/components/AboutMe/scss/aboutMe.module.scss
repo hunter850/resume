@@ -17,7 +17,7 @@
 
 .about__constrain {
     margin: auto;
-    @media (min-width: 768px) {
+    @media (min-width: 992px) {
         max-width: 720px;
         display: flex;
     }
@@ -93,7 +93,6 @@
         height: 20px;
         vertical-align: middle;
         margin-right: 6px;
-        
     }
     .about__paragraphs {
         width: fit-content;
@@ -102,7 +101,7 @@
         flex-direction: column;
         align-items: flex-start;
     }
-    li {
+    > ul > li {
         font-size: 18px;
         display: flex;
         line-height: 2;
@@ -124,5 +123,17 @@
     }
     span {
         line-height: 2;
+    }
+}
+
+.subtree {
+    & span {
+        display: block;
+    }
+    & ul {
+        padding-left: 32px;
+        & li {
+            list-style: outside;
+        }
     }
 }

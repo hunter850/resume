@@ -7,7 +7,7 @@ export default defineConfig({
     base: "/resume/",
     plugins: [react()],
     server: {
-        port: 3000,
+        port: 3100,
         open: true,
     },
     resolve: {

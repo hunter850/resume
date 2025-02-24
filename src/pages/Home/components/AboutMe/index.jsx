@@ -14,6 +14,7 @@ function AboutMe() {
         about__name,
         "about__text-wrap": about__text_wrap,
         about__paragraphs,
+        subtree,
     } = styles;
     const sectionRef = useRef(null);
     const { setAnchors } = useMoveToSection();
@@ -46,7 +47,15 @@ function AboutMe() {
                     <div className={about__text_wrap}>
                         <ul className={about__paragraphs}>
                             <li>進修經歷：資策會前端工程師就業養成班(2022.03~2022.08)</li>
-                            <li>專案作品：咖啡電商網站、OverWatch及ASUS官網切版練習</li>
+                            <li className={subtree}>
+                                <div>
+                                    <span>專案作品：</span>
+                                    <ul>
+                                        <li>公司內部網頁、App、桌面應用程式開發及維護。</li>
+                                        <li>咖啡電商網站、OverWatch及ASUS官網切版練習</li>
+                                    </ul>
+                                </div>
+                            </li>
                             <li>專業技能：React、Tailwind、styled-components、MUI、RWD、git版控</li>
                             <li>hunter850711@gmail.com</li>
                             <li>
